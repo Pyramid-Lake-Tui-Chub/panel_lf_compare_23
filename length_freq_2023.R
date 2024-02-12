@@ -8,7 +8,7 @@ library(dplyr)
 library(ggplot2)
 
 # read in data
-fish_dat <- read.csv("C:\\Documents\\Pyramid_Lake\\RCreations\\csv_files\\fishdata23.csv")
+fish_dat <- read.csv("C:\\RCreations\\RProjects\\2023\\panel_lf_compare_23\\fishdata23.csv")
 
 ## DATA MANIPULATION ##
 
@@ -73,14 +73,14 @@ lf
 lf_mesh <- ggplot(data=subset(fish_sub, expressing == "Y"), aes(x=tl)) +
   geom_histogram(binwidth=10,boundary=0,closed="left",
                  fill="gray40",color="black") +
-  scale_y_continuous(name="Number of Fish",expand=expansion(mult=c(0,0.05))) +
+  scale_y_continuous(name="Number of Fecund Tui Chub",expand=expansion(mult=c(0,0.05))) +
   scale_x_continuous(name="Total Length (mm)") +
   theme_bw()+
   facet_wrap(~mesh, ncol = 1)
 lf_mesh
 
 # Export
-setwd("C:\\Documents\\Pyramid_Lake\\RCreations\\ROutput")
+setwd("C:\\RCreations\\ROutput\\Length")
 
 png(filename = "lf_fec_byMesh_23.png", units = "in", width = 7, height = 8, res=600)
 lf_mesh
